@@ -9,18 +9,18 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { PostsModule } from '../posts/posts.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MenuComponent,
-    HomePageComponent,
-    NotFoundPageComponent
-  ],
-  imports: [
-    BrowserModule,
-    CoreRoutingModule,
-    PostsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MenuComponent,
+        HomePageComponent,
+        NotFoundPageComponent
+    ],
+    imports: [
+        BrowserModule,
+        CoreRoutingModule,
+        PostsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class CoreModule { }
