@@ -10,6 +10,7 @@ import { PostsService } from 'src/app/posts/services/posts.service';
 export class HomePageComponent implements OnInit {
 
   posts = null;
+  error = null;
 
   constructor(
     private postService: PostsService
@@ -20,7 +21,13 @@ export class HomePageComponent implements OnInit {
   }
 
   private async setupPosts() {
-    this.posts = await this.postService.getPosts();
+    try {
+      this.posts = await this.postService.getPosts();
+    } catch (error) {
+      console.log(error);
+      this.error = error;
+    }
+
   }
 
 

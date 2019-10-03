@@ -1,3 +1,11 @@
+<ng-container *ngIf="error">
+<app-error-message>
+<span class="message">Problem z siecią</span>
+</app-error-message>
+</ng-container>
+
+<ng-container *ngIf="!error">
 <app-post-list
 [posts]="posts"
 ></app-post-list>
+</ng-container>

@@ -1,28 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 
-import { PostListItemComponent } from './post-list-item.component';
-import { SharedModule } from '../../../shared/shared.module';
+import { PostProfilePageComponent } from './post-profile-page.component';
 
-describe('PostListItemComponent', () => {
-    let component: PostListItemComponent;
-    let fixture: ComponentFixture<PostListItemComponent>;
+describe('PostProfilePageComponent', () => {
+    let component: PostProfilePageComponent;
+    let fixture: ComponentFixture<PostProfilePageComponent>;
     let $component = null;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
-                PostListItemComponent
-            ],
-            imports: [
-                RouterTestingModule,
-                SharedModule
+                PostProfilePageComponent
             ]
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(PostListItemComponent);
+        fixture = TestBed.createComponent(PostProfilePageComponent);
         component = fixture.componentInstance;
         $component = fixture.nativeElement;
         fixture.detectChanges();

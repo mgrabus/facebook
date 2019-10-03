@@ -1,41 +1,43 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PostListComponent } from './post-list.component';
 import { PostListItemComponent } from '../post-list-item/post-list-item.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from 'src/app/shared/shared.module';
+import fakePosts from 'src/fakes/fake-posts';
+import { SharedModule } from '../../../shared/shared.module';
 
 describe('PostListComponent', () => {
-  let component: PostListComponent;
-  let fixture: ComponentFixture<PostListComponent>;
-  let $component = null;
+    let component: PostListComponent;
+    let fixture: ComponentFixture<PostListComponent>;
+    let $component = null;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ 
-        PostListComponent,
-        PostListItemComponent
-       ],
-       imports: [
-         RouterTestingModule,
-         SharedModule
-       ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [
+                PostListComponent,
+                PostListItemComponent
+            ],
+            imports: [
+                RouterTestingModule,
+                SharedModule
+            ]
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PostListComponent);
-    component = fixture.componentInstance;
-    $component = fixture.nativeElement;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PostListComponent);
+        component = fixture.componentInstance;
+        $component = fixture.nativeElement;
 
-  afterEach(() => {
-    $component.remove();
-});
+        component.posts = fakePosts;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    afterEach(() => {
+        $component.remove();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
