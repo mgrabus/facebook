@@ -5,6 +5,8 @@ import { PostsRoutingModule } from './posts-routing.module';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostListItemComponent } from './components/post-list-item/post-list-item.component';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -18,7 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     imports: [
         CommonModule,
         PostsRoutingModule,
-        SharedModule
+        SharedModule,
+        HttpClientModule
     ]
 })
 export class PostsModule { }

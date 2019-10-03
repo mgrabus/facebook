@@ -1,5 +1,5 @@
-
-<div class="card my-3" style="width: 18rem;" appHighlight>
+<ng-container *ngIf="post">
+<div class="card my-3"  appHighlight >
     <!-- <img src="..." class="card-img-top" alt="..."> -->
     <div class="card-header d-flex align-items-start">
             <img
@@ -8,9 +8,9 @@
                 alt
             >
             <div class="flex-fill">
-                <h4>{{ post.author.name }}</h4>
+                <h4>{{ post?.author?.name }}</h4>
                 <a [routerLink]="getPostUrl()">
-                    <small>{{ post.createdTime }}</small>
+                    <small>{{ post.createdTime | myDate }}</small>
                 </a>
             </div>
         </div>
@@ -18,6 +18,7 @@
       
         <h5 class="card-title">{{ post.id }}</h5>
         <p class="card-text">{{ post.body }}</p>
-        <img src="{{post.images[0]}}" />
+        <img [src]="post.images[0]" />
     </div>
 </div>
+</ng-container>
