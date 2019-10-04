@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IPostList } from 'src/app/shared/interfaces/post-list.interface';
 
 @Component({
     selector: 'app-post-list',
@@ -7,11 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
 
-    @Input() posts = null;
+    @Input() posts: IPostList = null;
 
     constructor() { }
 
     ngOnInit() {
     }
+
+    addPost(post) {
+        console.log("ADD post",post);
+        this.posts.unshift(post);
+    }    
 
 }

@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit(addForm)" #addForm='ngForm'>
+<div class="form-group row">
+
+        <div class="col-10">
+              <input 
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1" 
+                aria-describedby="emailHelp"
+                name="body"
+                placeholder="Zapisz komentarz"
+                [(ngModel)]="comment.body"
+                >
+        <button 
+          type="submit"
+          class="btn btn-primary">
+            Dodaj komentarz
+        </button>
+    </div>
+
+    </div>
+    </form>

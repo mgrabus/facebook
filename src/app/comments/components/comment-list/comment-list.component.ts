@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { ICommentList } from '../../../shared/interfaces/comment-list.interface';
+import { IComment } from 'src/app/shared/interfaces/comment.interface';
 
 @Component({
     selector: 'app-comment-list',
@@ -9,14 +10,16 @@ import { ICommentList } from '../../../shared/interfaces/comment-list.interface'
 })
 export class CommentListComponent implements OnInit {
 
-    comments = [
-        { id: 'kjgh123', body: 'Komentarz prosto z onet.pl' },
-        { id: 'aso09d78', body: 'Komentarz prosto z wp.pl' },
-    ] as ICommentList;
+    @Input() comments: ICommentList = null;
 
     constructor() { }
 
     ngOnInit() {
+    }
+
+    addComment(comment) {
+        console.log("ADD", comment);
+        this.comments.push(comment);
     }
 
 }
