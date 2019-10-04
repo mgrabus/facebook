@@ -8,12 +8,29 @@
                 id="exampleInputEmail1" 
                 aria-describedby="emailHelp"
                 name="body"
+                #body="ngModel"
                 placeholder="Zapisz komentarz"
                 [(ngModel)]="comment.body"
+                minlength="2"
+                required
                 >
+                <!-- <pre>{{ body.errors | json }}</pre> -->
+                <!-- <pre>touched: {{ body.touched }}</pre>
+                <pre>untouched: {{ body.untouched }}</pre>
+                <pre>dirty: {{ body.dirty }}</pre>
+                <pre>pristine: {{ body.pristine }}</pre>
+                <pre>valid: {{ body.valid }}</pre>
+                <pre>invalid: {{ body.invalid }}</pre> -->
+                <small *ngIf="body.errors && body.dirty" class="text-danger">
+                  <span *ngIf="body.errors.required">Aby dodać komentarz, wpisz tekst</span>
+                  <span *ngIf="body.errors.minlength">Za mało znaków  </span>
+
+                </small>
         <button 
           type="submit"
-          class="btn btn-primary">
+          class="btn btn-primary"
+          [disabled]="addForm.invalid"
+          >
             Dodaj komentarz
         </button>
     </div>

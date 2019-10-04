@@ -19,6 +19,17 @@
             </div>
         
           </div>
+
+<div class="row text-danger">
+
+    <ul>
+        <li *ngIf="body.dirty && body.invalid">Aby dodać komentarz, wpisz tekst</li>
+        <li *ngIf="body.dirty && body.invalid">Za mało znaków  </li>
+
+    </ul>
+
+</div>
+
         </form>
         
     </div>
